@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hashtags",
+  "info": {
+    "singularName": "hashtag",
+    "pluralName": "hashtags",
+    "displayName": "Hashtag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hashtagName": {
+      "type": "string",
+      "unique": true
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post",
+      "mappedBy": "hashtag"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "accounts",
+  "info": {
+    "singularName": "account",
+    "pluralName": "accounts",
+    "displayName": "Account",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "creator": {
+      "type": "boolean"
+    },
+    "verified": {
+      "type": "boolean"
+    },
+    "displayName": {
+      "type": "string",
+      "unique": true
+    },
+    "accountId": {
+      "type": "json"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "account"
+    },
+    "category": {
+      "type": "customField",
+      "options": [
+        "Dank",
+        "Normal",
+        "Cringe",
+        "Political"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "followers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "follows"
+    },
+    "bio": {
+      "type": "richtext"
+    },
+    "like": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::post.post",
+      "inversedBy": "likes"
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post",
+      "mappedBy": "account"
+    },
+    "displayPicture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
