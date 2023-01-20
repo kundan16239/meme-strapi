@@ -1,16 +1,13 @@
 module.exports = ({ env }) => ({
-    // ...
     email: {
         config: {
-            provider: 'sendgrid', // For community providers pass the full package name (e.g. provider: 'strapi-provider-email-mandrill')
+            provider: 'strapi-provider-email-sendinblue',
             providerOptions: {
-                apiKey: env('SENDGRID_API_KEY'),
-            },
-            settings: {
-                defaultFrom: 'no-reply@ekoj.com',
-                defaultReplyTo: 'reply@ekoj.com',
+                sendinblue_api_key: env('SIB_API_KEY'),
+                sendinblue_default_replyto: env('SIB_DEFAULT_REPLY_TO'),
+                sendinblue_default_from: env('SIB_DEFAULT_FROM'),
+                sendinblue_default_from_name: env('SIB_DEFAULT_FROM_NAME'),
             },
         },
     },
-    // ...
 });

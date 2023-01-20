@@ -20,7 +20,8 @@
     },
     "displayName": {
       "type": "string",
-      "unique": true
+      "unique": true,
+      "required": false
     },
     "accountId": {
       "type": "json"
@@ -63,14 +64,15 @@
       "mappedBy": "account"
     },
     "displayPicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
