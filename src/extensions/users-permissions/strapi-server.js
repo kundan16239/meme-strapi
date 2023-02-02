@@ -192,7 +192,7 @@ module.exports = (plugin) => {
                 },
             });
         if (userWithSameIdentifier) {
-            return ctx.badRequest('Identifier already taken');
+            return { "success": false, "message": "Identifier Not Available" };
         } else {
             return { "success": true, "message": "Identifier Available" }
         }
