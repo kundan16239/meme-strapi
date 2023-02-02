@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -17,14 +17,6 @@
     },
     "verified": {
       "type": "boolean"
-    },
-    "displayName": {
-      "type": "string",
-      "unique": true,
-      "required": false
-    },
-    "accountId": {
-      "type": "json"
     },
     "user": {
       "type": "relation",
@@ -63,16 +55,19 @@
       "target": "api::post.post",
       "mappedBy": "account"
     },
+    "applyVerification": {
+      "type": "boolean",
+      "default": false
+    },
     "displayPicture": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string",
+      "unique": true,
+      "minLength": 1,
+      "maxLength": 15,
+      "required": true
     }
   }
 }
